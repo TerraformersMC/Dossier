@@ -1,20 +1,13 @@
 package com.terraformersmc.dossier.generator;
 
 import com.mojang.datafixers.util.Pair;
-import com.terraformersmc.dossier.data.DossierLootTablesProvider;
-import com.terraformersmc.dossier.mixin.BlockLootTableCreator;
+import com.terraformersmc.dossier.provider.DossierLootTablesProvider;
+import com.terraformersmc.dossier.util.BlockLootTableCreator;
 import net.minecraft.block.Block;
 import net.minecraft.block.FlowerPotBlock;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.Items;
 import net.minecraft.loot.LootTable;
-import net.minecraft.loot.condition.LootCondition;
-import net.minecraft.loot.condition.MatchToolLootCondition;
 import net.minecraft.loot.context.LootContextTypes;
-import net.minecraft.predicate.NumberRange;
-import net.minecraft.predicate.item.EnchantmentPredicate;
-import net.minecraft.predicate.item.ItemPredicate;
 import net.minecraft.util.Identifier;
 
 import java.util.List;

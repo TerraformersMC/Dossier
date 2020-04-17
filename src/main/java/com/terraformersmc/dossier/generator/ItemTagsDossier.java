@@ -1,6 +1,6 @@
 package com.terraformersmc.dossier.generator;
 
-import com.terraformersmc.dossier.data.DossierItemTagsProvider;
+import com.terraformersmc.dossier.provider.DossierItemTagsProvider;
 import com.terraformersmc.dossier.util.CommonValues;
 import com.terraformersmc.dossier.util.TransformerFunction;
 import net.minecraft.block.Block;

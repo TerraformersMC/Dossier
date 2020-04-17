@@ -1,6 +1,6 @@
 package com.terraformersmc.dossier.generator;
 
-import com.terraformersmc.dossier.data.DossierRecipesProvider;
+import com.terraformersmc.dossier.provider.DossierRecipesProvider;
 import net.minecraft.advancement.criterion.InventoryChangedCriterion;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.item.Item;

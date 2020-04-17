@@ -6,6 +6,11 @@ pluginManagement {
             url = 'https://maven.fabricmc.net/'
         }
         gradlePluginPortal()
+
+		maven {
+			name = 'SpongePowered'
+			url = 'http://repo.spongepowered.org/maven'
+		}
     }
 }
 

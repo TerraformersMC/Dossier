@@ -1,11 +1,9 @@
-package com.terraformersmc.dossier.data;
+package com.terraformersmc.dossier.provider;
 
 import com.google.common.collect.Sets;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
-import net.minecraft.advancement.Advancement;
-import net.minecraft.advancement.criterion.ImpossibleCriterion;
 import net.minecraft.data.DataCache;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
@@ -29,9 +27,11 @@ public class DossierRecipesProvider implements DataProvider, Consumer<Consumer<C
 	private static final Logger LOGGER = LogManager.getLogger();
 	private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().create();
 	private final DataGenerator generator;
+	private final String modId;
 
-	public DossierRecipesProvider(DataGenerator generator) {
+	public DossierRecipesProvider(DataGenerator generator, String modId) {
 		this.generator = generator;
+		this.modId = modId;
 	}
 
 	@Override
@@ -50,7 +50,6 @@ public class DossierRecipesProvider implements DataProvider, Consumer<Consumer<C
 
 			}
 		});
-		this.saveRecipeAdvancement(cache, Advancement.Task.create().criterion("impossible", new ImpossibleCriterion.Conditions()).toJson(), path.resolve("data/minecraft/advancements/recipes/root.json"));
 	}
 
 	@SuppressWarnings("UnstableApiUsage")
@@ -131,7 +130,7 @@ public class DossierRecipesProvider implements DataProvider, Consumer<Consumer<C
 
 	@Override
 	public String getName() {
-		return "Dossier Recipes";
+		return "Dossier Loot Tables Generator: " + modId;
 	}
 
 	@Override

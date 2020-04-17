@@ -1,0 +1,24 @@
+accessWidener	v1	named
+
+accessible	method	net/minecraft/data/server/BlockLootTableGenerator	addExplosionDecayLootFunction	(Lnet/minecraft/item/ItemConvertible;Lnet/minecraft/loot/function/LootFunctionConsumingBuilder;)Ljava/lang/Object;
+accessible	method	net/minecraft/data/server/BlockLootTableGenerator	addSurvivesExplosionLootCondition	(Lnet/minecraft/item/ItemConvertible;Lnet/minecraft/loot/condition/LootConditionConsumingBuilder;)Ljava/lang/Object;
+accessible	method	net/minecraft/data/server/BlockLootTableGenerator	create	(Lnet/minecraft/item/ItemConvertible;)Lnet/minecraft/loot/LootTable$Builder;
+accessible	method	net/minecraft/data/server/BlockLootTableGenerator	create	(Lnet/minecraft/block/Block;Lnet/minecraft/loot/condition/LootCondition$Builder;Lnet/minecraft/loot/entry/LootEntry$Builder;)Lnet/minecraft/loot/LootTable$Builder;
+accessible	method	net/minecraft/data/server/BlockLootTableGenerator	createForNeedingSilkTouch	(Lnet/minecraft/block/Block;Lnet/minecraft/loot/entry/LootEntry$Builder;)Lnet/minecraft/loot/LootTable$Builder;
+accessible	method	net/minecraft/data/server/BlockLootTableGenerator	createForNeedingShears	(Lnet/minecraft/block/Block;Lnet/minecraft/loot/entry/LootEntry$Builder;)Lnet/minecraft/loot/LootTable$Builder;
+accessible	method	net/minecraft/data/server/BlockLootTableGenerator	createForNeedingSilkTouchShears	(Lnet/minecraft/block/Block;Lnet/minecraft/loot/entry/LootEntry$Builder;)Lnet/minecraft/loot/LootTable$Builder;
+accessible	method	net/minecraft/data/server/BlockLootTableGenerator	createForBlockWithItemDrops	(Lnet/minecraft/block/Block;Lnet/minecraft/item/ItemConvertible;)Lnet/minecraft/loot/LootTable$Builder;
+accessible	method	net/minecraft/data/server/BlockLootTableGenerator	create	(Lnet/minecraft/item/ItemConvertible;Lnet/minecraft/loot/LootTableRange;)Lnet/minecraft/loot/LootTable$Builder;
+accessible	method	net/minecraft/data/server/BlockLootTableGenerator	createForBlockWithItemDrops	(Lnet/minecraft/block/Block;Lnet/minecraft/item/ItemConvertible;Lnet/minecraft/loot/LootTableRange;)Lnet/minecraft/loot/LootTable$Builder;
+accessible	method	net/minecraft/data/server/BlockLootTableGenerator	createForNeedingSilkTouch	(Lnet/minecraft/item/ItemConvertible;)Lnet/minecraft/loot/LootTable$Builder;
+accessible	method	net/minecraft/data/server/BlockLootTableGenerator	createForPottedPlant	(Lnet/minecraft/item/ItemConvertible;)Lnet/minecraft/loot/LootTable$Builder;
+accessible	method	net/minecraft/data/server/BlockLootTableGenerator	createForSlabs	(Lnet/minecraft/block/Block;)Lnet/minecraft/loot/LootTable$Builder;
+accessible	method	net/minecraft/data/server/BlockLootTableGenerator	createForMultiblock	(Lnet/minecraft/block/Block;Lnet/minecraft/state/property/Property;Ljava/lang/Comparable;)Lnet/minecraft/loot/LootTable$Builder;
+accessible	method	net/minecraft/data/server/BlockLootTableGenerator	createForNameableContainer	(Lnet/minecraft/block/Block;)Lnet/minecraft/loot/LootTable$Builder;
+accessible	method	net/minecraft/data/server/BlockLootTableGenerator	createForOreWithSingleItemDrop	(Lnet/minecraft/block/Block;Lnet/minecraft/item/Item;)Lnet/minecraft/loot/LootTable$Builder;
+accessible	method	net/minecraft/data/server/BlockLootTableGenerator	createForTallGrass	(Lnet/minecraft/block/Block;)Lnet/minecraft/loot/LootTable$Builder;
+accessible	method	net/minecraft/data/server/BlockLootTableGenerator	createForCropStem	(Lnet/minecraft/block/Block;Lnet/minecraft/item/Item;)Lnet/minecraft/loot/LootTable$Builder;
+accessible	method	net/minecraft/data/server/BlockLootTableGenerator	createForAttachedCropStem	(Lnet/minecraft/block/Block;Lnet/minecraft/item/Item;)Lnet/minecraft/loot/LootTable$Builder;
+accessible	method	net/minecraft/data/server/BlockLootTableGenerator	createForBlockNeedingShears	(Lnet/minecraft/item/ItemConvertible;)Lnet/minecraft/loot/LootTable$Builder;
+accessible	method	net/minecraft/data/server/BlockLootTableGenerator	createForLeaves	(Lnet/minecraft/block/Block;Lnet/minecraft/block/Block;[F)Lnet/minecraft/loot/LootTable$Builder;
+accessible	method	net/minecraft/data/server/BlockLootTableGenerator	createForCrops	(Lnet/minecraft/block/Block;Lnet/minecraft/item/Item;Lnet/minecraft/item/Item;Lnet/minecraft/loot/condition/LootCondition$Builder;)Lnet/minecraft/loot/LootTable$Builder;

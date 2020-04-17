@@ -1,4 +1,4 @@
-package com.terraformersmc.dossier.data;
+package com.terraformersmc.dossier.provider;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -10,19 +10,12 @@ import com.terraformersmc.dossier.util.DefaultedHashMap;
 import net.minecraft.data.DataCache;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
-import net.minecraft.enchantment.Enchantments;
-import net.minecraft.item.Items;
 import net.minecraft.loot.LootManager;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.LootTableReporter;
 import net.minecraft.loot.LootTables;
-import net.minecraft.loot.condition.LootCondition;
-import net.minecraft.loot.condition.MatchToolLootCondition;
 import net.minecraft.loot.context.LootContextType;
 import net.minecraft.loot.context.LootContextTypes;
-import net.minecraft.predicate.NumberRange;
-import net.minecraft.predicate.item.EnchantmentPredicate;
-import net.minecraft.predicate.item.ItemPredicate;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -43,10 +36,12 @@ public class DossierLootTablesProvider implements DataProvider, Consumer<Runnabl
 	public final Map<LootContextType, List<Pair<Identifier, LootTable.Builder>>> lootTables = new DefaultedHashMap<>(Lists.newArrayList());
 	protected final List<Pair<Supplier<Consumer<BiConsumer<Identifier, LootTable.Builder>>>, LootContextType>> lootTypeGenerators;
 	private Runnable onRun;
+	private final String modId;
 
-	public DossierLootTablesProvider(DataGenerator generator) {
+	public DossierLootTablesProvider(DataGenerator generator, String modId) {
 		this.generator = generator;
 		this.lootTypeGenerators = Lists.newArrayList();
+		this.modId = modId;
 	}
 
 	private static Path getOutput(Path rootOutput, Identifier lootTableId) {
@@ -87,7 +82,7 @@ public class DossierLootTablesProvider implements DataProvider, Consumer<Runnabl
 
 	@Override
 	public String getName() {
-		return "Dossier Loot Tables";
+		return "Dossier Loot Tables Generator: " + modId;
 	}
 
 	@Override
