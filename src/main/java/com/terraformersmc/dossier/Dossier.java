@@ -22,7 +22,11 @@ public class Dossier implements ModInitializer {
 		}
 		FabricLoader.getInstance().getEntrypointContainers("dossier", DossierProvider.class).forEach(container -> PROVIDERS.put(container.getProvider().getMetadata().getId(), container.getEntrypoint()));
 		CommandRegistry.INSTANCE.register(false, dispatcher -> dispatcher.register(CommandManager.literal("dossier").then(CommandManager.literal("generate").then(CommandManager.argument("modId", StringArgumentType.string()).suggests((context, builder) -> {
-			Dossier.PROVIDERS.keySet().forEach(builder::suggest);
+			Dossier.PROVIDERS.keySet().forEach(modId -> {
+				if (Dossier.PROVIDERS.get(modId).isEnabled()) {
+					builder.suggest(modId);
+				}
+			});
 			return builder.buildFuture();
 		}).executes(context -> {
 			String modId = StringArgumentType.getString(context, "modId");
