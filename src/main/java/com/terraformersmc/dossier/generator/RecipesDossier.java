@@ -34,7 +34,7 @@ public abstract class RecipesDossier extends DossierGenerator<DossierRecipesProv
         this.provider = (DossierRecipesProvider) DossierGenerator.getProvider(modId, DossierType.RECIPES);
     }
 
-    protected abstract void addRecipes(Consumer<RecipeJsonProvider> provider);
+    protected abstract void addRecipes(Consumer<RecipeJsonProvider> exporter);
 
     @Override
     public Consumer<Consumer<RecipeJsonProvider>> getCustomFunction() {
