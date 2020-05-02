@@ -6,6 +6,7 @@ import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.predicate.NumberRange;
+import net.minecraft.predicate.entity.EntityPredicate;
 import net.minecraft.predicate.item.ItemPredicate;
 import net.minecraft.tag.Tag;
 
@@ -26,7 +27,7 @@ public abstract class RecipesDossier extends DossierGenerator<DossierRecipesProv
     }
 
     protected InventoryChangedCriterion.Conditions conditionsFrom(ItemPredicate... items) {
-        return new InventoryChangedCriterion.Conditions(NumberRange.IntRange.ANY, NumberRange.IntRange.ANY, NumberRange.IntRange.ANY, items);
+        return new InventoryChangedCriterion.Conditions(EntityPredicate.class_5258.field_24388, NumberRange.IntRange.ANY, NumberRange.IntRange.ANY, NumberRange.IntRange.ANY, items);
     }
 
     @Override
