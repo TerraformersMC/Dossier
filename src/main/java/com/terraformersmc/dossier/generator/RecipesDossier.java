@@ -27,7 +27,7 @@ public abstract class RecipesDossier extends DossierGenerator<DossierRecipesProv
     }
 
     protected InventoryChangedCriterion.Conditions conditionsFrom(ItemPredicate... items) {
-        return new InventoryChangedCriterion.Conditions(EntityPredicate.class_5258.field_24388, NumberRange.IntRange.ANY, NumberRange.IntRange.ANY, NumberRange.IntRange.ANY, items);
+        return new InventoryChangedCriterion.Conditions(EntityPredicate.Extended.EMPTY, NumberRange.IntRange.ANY, NumberRange.IntRange.ANY, NumberRange.IntRange.ANY, items);
     }
 
     @Override
