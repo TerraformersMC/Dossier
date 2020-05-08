@@ -4,10 +4,13 @@ import net.minecraft.block.Block;
 import net.minecraft.data.server.BlockLootTableGenerator;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
+import net.minecraft.loot.ConstantLootTableRange;
+import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.LootTableRange;
 import net.minecraft.loot.condition.LootCondition;
 import net.minecraft.loot.condition.LootConditionConsumingBuilder;
+import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.entry.LootEntry;
 import net.minecraft.loot.function.LootFunctionConsumingBuilder;
 import net.minecraft.state.property.Property;
@@ -26,8 +29,12 @@ public class BlockLootTableCreator {
 		return BlockLootTableGenerator.create(item);
 	}
 
-	public static LootTable.Builder drops(Block block, LootCondition.Builder conditionBuilder, LootEntry.Builder<?> child) {
-		return BlockLootTableGenerator.create(block, conditionBuilder, child);
+	public static LootTable.Builder drops(ItemConvertible item, LootCondition.Builder conditionBuilder, LootEntry.Builder<?> child) {
+		return drops(ItemEntry.builder(item), conditionBuilder, child);
+	}
+
+	public static LootTable.Builder drops(LootEntry.Builder<?> entry, LootCondition.Builder conditionBuilder, LootEntry.Builder<?> child) {
+		return LootTable.builder().withPool(LootPool.builder().withRolls(ConstantLootTableRange.create(1)).withEntry(entry.withCondition(conditionBuilder).withChild(child)));
 	}
 
 	public static LootTable.Builder dropsWithSilkTouch(Block block, LootEntry.Builder<?> child) {
