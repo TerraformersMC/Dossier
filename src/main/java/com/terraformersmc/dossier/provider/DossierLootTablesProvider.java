@@ -56,7 +56,7 @@ public class DossierLootTablesProvider implements DataProvider, Consumer<Runnabl
 		this.lootTables.forEach((type, tables) -> tables.forEach(table -> {
 			Identifier id = table.getFirst();
 			LootTable.Builder builder = table.getSecond();
-			if (map.put(id, builder.withType(type).create()) != null) {
+			if (map.put(id, builder.type(type).build()) != null) {
 				throw new IllegalStateException("Duplicate loot table " + id);
 			}
 		}));

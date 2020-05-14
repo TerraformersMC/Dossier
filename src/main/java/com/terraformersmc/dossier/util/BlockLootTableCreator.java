@@ -17,16 +17,16 @@ import net.minecraft.state.property.Property;
 import net.minecraft.util.StringIdentifiable;
 
 public class BlockLootTableCreator {
-	public static <T> T addExplosionDecayCondition(ItemConvertible item, LootFunctionConsumingBuilder<T> functionBuilder) {
-		return BlockLootTableGenerator.addExplosionDecayLootFunction(item, functionBuilder);
+	public static <T> T applyExplosionDecay(ItemConvertible item, LootFunctionConsumingBuilder<T> functionBuilder) {
+		return BlockLootTableGenerator.applyExplosionDecay(item, functionBuilder);
 	}
 
 	public static <T> T addSurvivesExplosionCondition(ItemConvertible item, LootConditionConsumingBuilder<T> lootConditionConsumingBuilder) {
-		return BlockLootTableGenerator.addSurvivesExplosionLootCondition(item, lootConditionConsumingBuilder);
+		return BlockLootTableGenerator.addSurvivesExplosionCondition(item, lootConditionConsumingBuilder);
 	}
 
 	public static LootTable.Builder drops(ItemConvertible item) {
-		return BlockLootTableGenerator.create(item);
+		return BlockLootTableGenerator.drops(item);
 	}
 
 	public static LootTable.Builder drops(ItemConvertible item, LootCondition.Builder conditionBuilder, LootEntry.Builder<?> child) {
@@ -34,82 +34,87 @@ public class BlockLootTableCreator {
 	}
 
 	public static LootTable.Builder drops(LootEntry.Builder<?> entry, LootCondition.Builder conditionBuilder, LootEntry.Builder<?> child) {
-		return LootTable.builder().withPool(LootPool.builder().withRolls(ConstantLootTableRange.create(1)).withEntry(entry.withCondition(conditionBuilder).withChild(child)));
+		return LootTable.builder()
+				.pool(LootPool.builder()
+						.rolls(ConstantLootTableRange.create(1))
+						.with(entry
+								.conditionally(conditionBuilder)
+								.alternatively(child)));
 	}
 
 	public static LootTable.Builder dropsWithSilkTouch(Block block, LootEntry.Builder<?> child) {
-		return BlockLootTableGenerator.createForNeedingSilkTouch(block, child);
+		return BlockLootTableGenerator.dropsWithSilkTouch(block, child);
 	}
 
 	public static LootTable.Builder dropsWithShears(Block block, LootEntry.Builder<?> child) {
-		return BlockLootTableGenerator.createForNeedingShears(block, child);
+		return BlockLootTableGenerator.dropsWithShears(block, child);
 	}
 
-	public static LootTable.Builder dropsWithSilkTouchShears(Block block, LootEntry.Builder<?> child) {
-		return BlockLootTableGenerator.createForNeedingSilkTouchShears(block, child);
+	public static LootTable.Builder dropsWithSilkTouchOrShears(Block block, LootEntry.Builder<?> child) {
+		return BlockLootTableGenerator.dropsWithSilkTouchShears(block, child);
 	}
 
 	public static LootTable.Builder drops(Block block, ItemConvertible lootWithoutSilkTouch) {
-		return BlockLootTableGenerator.createForBlockWithItemDrops(block, lootWithoutSilkTouch);
+		return BlockLootTableGenerator.drops(block, lootWithoutSilkTouch);
 	}
 
 	public static LootTable.Builder drops(ItemConvertible item, LootTableRange count) {
-		return BlockLootTableGenerator.create(item, count);
+		return BlockLootTableGenerator.drops(item, count);
 	}
 
 	public static LootTable.Builder drops(Block block, ItemConvertible lootWithoutSilkTouch, LootTableRange count) {
-		return BlockLootTableGenerator.createForBlockWithItemDrops(block, lootWithoutSilkTouch, count);
+		return BlockLootTableGenerator.drops(block, lootWithoutSilkTouch, count);
 	}
 
 	public static LootTable.Builder dropsWithSilkTouch(ItemConvertible item) {
-		return BlockLootTableGenerator.createForNeedingSilkTouch(item);
+		return BlockLootTableGenerator.dropsWithSilkTouch(item);
 	}
 
 	public static LootTable.Builder pottedPlantDrops(ItemConvertible item) {
-		return BlockLootTableGenerator.createForPottedPlant(item);
+		return BlockLootTableGenerator.pottedPlantDrops(item);
 	}
 
-	public static LootTable.Builder slabsDrops(Block block) {
-		return BlockLootTableGenerator.createForSlabs(block);
+	public static LootTable.Builder slabDrops(Block block) {
+		return BlockLootTableGenerator.slabDrops(block);
 	}
 
-	public static <T extends Comparable<T> & StringIdentifiable> LootTable.Builder dropsWithCertainProperty(Block block, Property<T> property, T comparable) {
-		return BlockLootTableGenerator.createForMultiblock(block, property, comparable);
+	public static <T extends Comparable<T> & StringIdentifiable> LootTable.Builder dropsWithProperty(Block block, Property<T> property, T comparable) {
+		return BlockLootTableGenerator.dropsWithProperty(block, property, comparable);
 	}
 
 	public static LootTable.Builder nameableContainerDrops(Block block) {
-		return BlockLootTableGenerator.createForNameableContainer(block);
+		return BlockLootTableGenerator.nameableContainerDrops(block);
 	}
 
 	public static LootTable.Builder oreDrops(Block block, Item item) {
-		return BlockLootTableGenerator.createForOreWithSingleItemDrop(block, item);
+		return BlockLootTableGenerator.oreDrops(block, item);
 	}
 
-	public static LootTable.Builder tallGrassDrops(Block block) {
-		return BlockLootTableGenerator.createForTallGrass(block);
+	public static LootTable.Builder grassDrops(Block block) {
+		return BlockLootTableGenerator.grassDrops(block);
 	}
 
 	public static LootTable.Builder cropStemDrops(Block block, Item seeds) {
-		return BlockLootTableGenerator.createForCropStem(block, seeds);
+		return BlockLootTableGenerator.cropStemDrops(block, seeds);
 	}
 
 	public static LootTable.Builder attachedCropStemDrops(Block block, Item seeds) {
-		return BlockLootTableGenerator.createForAttachedCropStem(block, seeds);
+		return BlockLootTableGenerator.attachedCropStemDrops(block, seeds);
 	}
 
 	public static LootTable.Builder dropsWithShears(ItemConvertible item) {
-		return BlockLootTableGenerator.createForBlockNeedingShears(item);
+		return BlockLootTableGenerator.dropsWithShears(item);
 	}
 
 	public static LootTable.Builder leavesDrops(Block leafBlock, Block sapling, float... saplingDropChances) {
-		return BlockLootTableGenerator.createForLeaves(leafBlock, sapling, saplingDropChances);
+		return BlockLootTableGenerator.leavesDrop(leafBlock, sapling, saplingDropChances);
 	}
 
 	public static LootTable.Builder cropsDrops(Block block, Item food, Item seeds, LootCondition.Builder condition) {
-		return BlockLootTableGenerator.createForCrops(block, food, seeds, condition);
+		return BlockLootTableGenerator.cropDrops(block, food, seeds, condition);
 	}
 
 	public static LootTable.Builder dropsNothing() {
-		return BlockLootTableGenerator.createEmpty();
+		return BlockLootTableGenerator.dropsNothing();
 	}
 }
