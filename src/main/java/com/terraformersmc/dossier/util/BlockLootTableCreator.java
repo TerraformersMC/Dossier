@@ -11,7 +11,7 @@ import net.minecraft.loot.LootTableRange;
 import net.minecraft.loot.condition.LootCondition;
 import net.minecraft.loot.condition.LootConditionConsumingBuilder;
 import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.entry.LootEntry;
+import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.loot.function.LootFunctionConsumingBuilder;
 import net.minecraft.state.property.Property;
 import net.minecraft.util.StringIdentifiable;
@@ -29,11 +29,11 @@ public class BlockLootTableCreator {
 		return BlockLootTableGenerator.drops(item);
 	}
 
-	public static LootTable.Builder drops(ItemConvertible item, LootCondition.Builder conditionBuilder, LootEntry.Builder<?> child) {
+	public static LootTable.Builder drops(ItemConvertible item, LootCondition.Builder conditionBuilder, LootPoolEntry.Builder<?> child) {
 		return drops(ItemEntry.builder(item), conditionBuilder, child);
 	}
 
-	public static LootTable.Builder drops(LootEntry.Builder<?> entry, LootCondition.Builder conditionBuilder, LootEntry.Builder<?> child) {
+	public static LootTable.Builder drops(LootPoolEntry.Builder<?> entry, LootCondition.Builder conditionBuilder, LootPoolEntry.Builder<?> child) {
 		return LootTable.builder()
 				.pool(LootPool.builder()
 						.rolls(ConstantLootTableRange.create(1))
@@ -42,16 +42,16 @@ public class BlockLootTableCreator {
 								.alternatively(child)));
 	}
 
-	public static LootTable.Builder dropsWithSilkTouch(Block block, LootEntry.Builder<?> child) {
+	public static LootTable.Builder dropsWithSilkTouch(Block block, LootPoolEntry.Builder<?> child) {
 		return BlockLootTableGenerator.dropsWithSilkTouch(block, child);
 	}
 
-	public static LootTable.Builder dropsWithShears(Block block, LootEntry.Builder<?> child) {
+	public static LootTable.Builder dropsWithShears(Block block, LootPoolEntry.Builder<?> child) {
 		return BlockLootTableGenerator.dropsWithShears(block, child);
 	}
 
-	public static LootTable.Builder dropsWithSilkTouchOrShears(Block block, LootEntry.Builder<?> child) {
-		return BlockLootTableGenerator.dropsWithSilkTouchShears(block, child);
+	public static LootTable.Builder dropsWithSilkTouchOrShears(Block block, LootPoolEntry.Builder<?> child) {
+		return BlockLootTableGenerator.dropsWithSilkTouchOrShears(block, child);
 	}
 
 	public static LootTable.Builder drops(Block block, ItemConvertible lootWithoutSilkTouch) {
