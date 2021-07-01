@@ -41,8 +41,8 @@ public class DossierBlockTagsProvider extends AbstractTagProvider<Block> impleme
 	}
 
 	@Override
-	public Tag.Builder method_27169(Tag.Identified<Block> identified) {
-		return super.method_27169(identified);
+	public Tag.Builder getTagBuilder(Tag.Identified<Block> identified) {
+		return super.getTagBuilder(identified);
 	}
 
 	@Override

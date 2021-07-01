@@ -4,15 +4,15 @@ import net.minecraft.block.Block;
 import net.minecraft.data.server.BlockLootTableGenerator;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
-import net.minecraft.loot.ConstantLootTableRange;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
-import net.minecraft.loot.LootTableRange;
+import net.minecraft.loot.provider.number.LootNumberProvider;
 import net.minecraft.loot.condition.LootCondition;
 import net.minecraft.loot.condition.LootConditionConsumingBuilder;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.loot.function.LootFunctionConsumingBuilder;
+import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.state.property.Property;
 import net.minecraft.util.StringIdentifiable;
 
@@ -36,7 +36,7 @@ public class BlockLootTableCreator {
 	public static LootTable.Builder drops(LootPoolEntry.Builder<?> entry, LootCondition.Builder conditionBuilder, LootPoolEntry.Builder<?> child) {
 		return LootTable.builder()
 				.pool(LootPool.builder()
-						.rolls(ConstantLootTableRange.create(1))
+						.rolls(ConstantLootNumberProvider.create(1))
 						.with(entry
 								.conditionally(conditionBuilder)
 								.alternatively(child)));
@@ -58,11 +58,11 @@ public class BlockLootTableCreator {
 		return BlockLootTableGenerator.drops(block, lootWithoutSilkTouch);
 	}
 
-	public static LootTable.Builder drops(ItemConvertible item, LootTableRange count) {
+	public static LootTable.Builder drops(ItemConvertible item, LootNumberProvider count) {
 		return BlockLootTableGenerator.drops(item, count);
 	}
 
-	public static LootTable.Builder drops(Block block, ItemConvertible lootWithoutSilkTouch, LootTableRange count) {
+	public static LootTable.Builder drops(Block block, ItemConvertible lootWithoutSilkTouch, LootNumberProvider count) {
 		return BlockLootTableGenerator.drops(block, lootWithoutSilkTouch, count);
 	}
 
