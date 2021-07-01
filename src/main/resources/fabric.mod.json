@@ -23,6 +23,7 @@
     "TerraformersMC"
   ],
   "contributors": [
+    "jhbuchanan45"
   ],
   "description": "Data Generation library for Terraformers",
   "custom": {
