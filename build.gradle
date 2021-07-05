@@ -46,6 +46,10 @@ task sourcesJar(type: Jar, dependsOn: classes) {
     from sourceSets.main.allSource
 }
 
+java {
+	withSourcesJar()
+}
+
 jar {
     from "LICENSE"
 }
