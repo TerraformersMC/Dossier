@@ -8,8 +8,8 @@ accessible	method	net/minecraft/data/server/BlockLootTableGenerator	dropsWithSil
 accessible	method	net/minecraft/data/server/BlockLootTableGenerator	dropsWithShears	(Lnet/minecraft/block/Block;Lnet/minecraft/loot/entry/LootPoolEntry$Builder;)Lnet/minecraft/loot/LootTable$Builder;
 accessible	method	net/minecraft/data/server/BlockLootTableGenerator	dropsWithSilkTouchOrShears	(Lnet/minecraft/block/Block;Lnet/minecraft/loot/entry/LootPoolEntry$Builder;)Lnet/minecraft/loot/LootTable$Builder;
 accessible	method	net/minecraft/data/server/BlockLootTableGenerator	drops	(Lnet/minecraft/block/Block;Lnet/minecraft/item/ItemConvertible;)Lnet/minecraft/loot/LootTable$Builder;
-accessible	method	net/minecraft/data/server/BlockLootTableGenerator	drops	(Lnet/minecraft/item/ItemConvertible;Lnet/minecraft/loot/LootTableRange;)Lnet/minecraft/loot/LootTable$Builder;
-accessible	method	net/minecraft/data/server/BlockLootTableGenerator	drops	(Lnet/minecraft/block/Block;Lnet/minecraft/item/ItemConvertible;Lnet/minecraft/loot/LootTableRange;)Lnet/minecraft/loot/LootTable$Builder;
+accessible	method	net/minecraft/data/server/BlockLootTableGenerator	drops	(Lnet/minecraft/block/Block;Lnet/minecraft/item/ItemConvertible;Lnet/minecraft/loot/provider/number/LootNumberProvider;)Lnet/minecraft/loot/LootTable$Builder;
+accessible  method  net/minecraft/data/server/BlockLootTableGenerator   drops   (Lnet/minecraft/item/ItemConvertible;Lnet/minecraft/loot/provider/number/LootNumberProvider;)Lnet/minecraft/loot/LootTable$Builder;
 accessible	method	net/minecraft/data/server/BlockLootTableGenerator	dropsWithSilkTouch	(Lnet/minecraft/item/ItemConvertible;)Lnet/minecraft/loot/LootTable$Builder;
 accessible	method	net/minecraft/data/server/BlockLootTableGenerator	pottedPlantDrops	(Lnet/minecraft/item/ItemConvertible;)Lnet/minecraft/loot/LootTable$Builder;
 accessible	method	net/minecraft/data/server/BlockLootTableGenerator	slabDrops	(Lnet/minecraft/block/Block;)Lnet/minecraft/loot/LootTable$Builder;
@@ -22,3 +22,4 @@ accessible	method	net/minecraft/data/server/BlockLootTableGenerator	attachedCrop
 accessible	method	net/minecraft/data/server/BlockLootTableGenerator	dropsWithShears	(Lnet/minecraft/item/ItemConvertible;)Lnet/minecraft/loot/LootTable$Builder;
 accessible	method	net/minecraft/data/server/BlockLootTableGenerator	leavesDrop	(Lnet/minecraft/block/Block;Lnet/minecraft/block/Block;[F)Lnet/minecraft/loot/LootTable$Builder;
 accessible	method	net/minecraft/data/server/BlockLootTableGenerator	cropDrops	(Lnet/minecraft/block/Block;Lnet/minecraft/item/Item;Lnet/minecraft/item/Item;Lnet/minecraft/loot/condition/LootCondition$Builder;)Lnet/minecraft/loot/LootTable$Builder;
+accessible  class   net/minecraft/data/server/AbstractTagProvider$ObjectBuilder

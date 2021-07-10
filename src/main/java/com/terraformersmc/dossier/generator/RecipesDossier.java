@@ -15,7 +15,7 @@ import java.util.function.Consumer;
 public abstract class RecipesDossier extends DossierGenerator<DossierRecipesProvider, Consumer<Consumer<RecipeJsonProvider>>> {
 
     protected InventoryChangedCriterion.Conditions conditionsFrom(ItemConvertible item) {
-        return this.conditionsFrom(ItemPredicate.Builder.create().item(item).build());
+        return this.conditionsFrom(ItemPredicate.Builder.create().items(item).build());
     }
 
     protected InventoryChangedCriterion.Conditions conditionsFrom(Tag<Item> tag) {
