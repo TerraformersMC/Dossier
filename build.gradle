@@ -62,19 +62,23 @@ publishing {
             }
 
             afterEvaluate {
-				artifact remapJar
+                artifact remapJar
             }
         }
     }
 
-    repositories {
-        if (project.hasProperty('mavenPass')) {
-            maven {
-                url = "http://mavenupload.modmuss50.me/"
-                credentials {
-                    username = "buildslave"
-                    password = project.getProperty('mavenPass')
-                }
+    setupRepositories(repositories)
+}
+
+void setupRepositories(RepositoryHandler repositories) {
+    //repositories.mavenLocal() // uncomment for testing
+    def ENV = System.getenv()
+    if (ENV.MAVEN_URL) {
+        repositories.maven {
+            url ENV.MAVEN_URL
+            credentials {
+                username ENV.MAVEN_USERNAME
+                password ENV.MAVEN_PASSWORD
             }
         }
     }
