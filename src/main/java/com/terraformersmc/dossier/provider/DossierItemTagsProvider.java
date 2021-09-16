@@ -20,7 +20,7 @@ public class DossierItemTagsProvider extends AbstractTagProvider<Item> implement
 
 	public DossierItemTagsProvider(DataGenerator generator, DossierBlockTagsProvider blockTagsProvider, String modId) {
 		super(generator, Registry.ITEM);
-		this.tagCopier = blockTagsProvider::method_27169;
+		this.tagCopier = blockTagsProvider::getTagBuilder;
 		this.modId = modId;
 	}
 
@@ -40,7 +40,7 @@ public class DossierItemTagsProvider extends AbstractTagProvider<Item> implement
 	}
 
 	public void copy(Tag.Identified<Block> identified, Tag.Identified<Item> identified2) {
-		Tag.Builder builder = this.method_27169(identified2);
+		Tag.Builder builder = this.getTagBuilder(identified2);
 		Tag.Builder builder2 = this.tagCopier.apply(identified);
 		builder2.streamEntries().forEach(builder::add);
 	}
