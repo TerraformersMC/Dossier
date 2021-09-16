@@ -1,17 +1,11 @@
 pluginManagement {
-    repositories {
-        jcenter()
-        maven {
-            name = 'Fabric'
-            url = 'https://maven.fabricmc.net/'
-        }
-        gradlePluginPortal()
-
+	repositories {
 		maven {
-			name = 'SpongePowered'
-			url = 'https://repo.spongepowered.org/maven'
+			name = 'Fabric'
+			url = 'https://maven.fabricmc.net/'
 		}
-    }
+		gradlePluginPortal()
+	}
 }
 
 rootProject.name = "dossier"
