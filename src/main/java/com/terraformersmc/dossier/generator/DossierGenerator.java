@@ -72,7 +72,7 @@ public abstract class DossierGenerator<P extends DataProvider & Consumer<F>, F> 
 		providers.put(DossierType.RECIPES, new DossierRecipesProvider(generator, modId));
 		providers.put(DossierType.LOOT_TABLES, new DossierLootTablesProvider(generator, modId));
 
-		providers.forEach((t, provider) -> generator.install(provider));
+		providers.forEach((t, provider) -> generator.addProvider(provider));
 		DATA_GENERATORS.put(modId, generator);
 		DATA_PROVIDERS.put(modId, providers);
 	}
