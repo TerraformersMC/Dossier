@@ -25,3 +25,5 @@ run
 
 Thumbs.db
 *.psd
+
+.vscode/
