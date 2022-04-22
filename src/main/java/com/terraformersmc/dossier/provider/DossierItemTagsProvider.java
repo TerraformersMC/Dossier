@@ -5,6 +5,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.server.AbstractTagProvider;
 import net.minecraft.item.Item;
 import net.minecraft.tag.Tag;
+import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -14,7 +15,7 @@ import java.util.function.Function;
 
 public class DossierItemTagsProvider extends AbstractTagProvider<Item> implements Consumer<Runnable> {
 
-	private final Function<Tag.Identified<Block>, Tag.Builder> tagCopier;
+	private final Function<TagKey<Block>, Tag.Builder> tagCopier;
 	private final String modId;
 	private Runnable onConfigure;
 
@@ -35,11 +36,11 @@ public class DossierItemTagsProvider extends AbstractTagProvider<Item> implement
 	}
 
 	@Override
-	public ObjectBuilder<Item> getOrCreateTagBuilder(Tag.Identified<Item> tag) {
+	public ObjectBuilder<Item> getOrCreateTagBuilder(TagKey<Item> tag) {
 		return super.getOrCreateTagBuilder(tag);
 	}
 
-	public void copy(Tag.Identified<Block> identified, Tag.Identified<Item> identified2) {
+	public void copy(TagKey<Block> identified, TagKey<Item> identified2) {
 		Tag.Builder builder = this.getTagBuilder(identified2);
 		Tag.Builder builder2 = this.tagCopier.apply(identified);
 		builder2.streamEntries().forEach(builder::add);
