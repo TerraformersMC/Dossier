@@ -9,6 +9,7 @@ import net.minecraft.predicate.NumberRange;
 import net.minecraft.predicate.entity.EntityPredicate;
 import net.minecraft.predicate.item.ItemPredicate;
 import net.minecraft.tag.Tag;
+import net.minecraft.tag.TagKey;
 
 import java.util.function.Consumer;
 
@@ -18,11 +19,11 @@ public abstract class RecipesDossier extends DossierGenerator<DossierRecipesProv
         return this.conditionsFrom(ItemPredicate.Builder.create().items(item).build());
     }
 
-    protected InventoryChangedCriterion.Conditions conditionsFrom(Tag<Item> tag) {
+    protected InventoryChangedCriterion.Conditions conditionsFrom(TagKey<Item> tag) {
         return this.conditionsFrom(this.itemPredicateOf(tag));
     }
 
-    protected ItemPredicate itemPredicateOf(Tag<Item> tag) {
+    protected ItemPredicate itemPredicateOf(TagKey<Item> tag) {
         return ItemPredicate.Builder.create().tag(tag).build();
     }
 

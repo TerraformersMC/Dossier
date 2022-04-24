@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.server.AbstractTagProvider;
 import net.minecraft.tag.Tag;
+import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -31,7 +32,7 @@ public class DossierBlockTagsProvider extends AbstractTagProvider<Block> impleme
 	}
 
 	@Override
-	public ObjectBuilder<Block> getOrCreateTagBuilder(Tag.Identified<Block> identified) {
+	public AbstractTagProvider.ObjectBuilder<Block> getOrCreateTagBuilder(TagKey<Block> identified) {
 		return super.getOrCreateTagBuilder(identified);
 	}
 
@@ -41,7 +42,7 @@ public class DossierBlockTagsProvider extends AbstractTagProvider<Block> impleme
 	}
 
 	@Override
-	public Tag.Builder getTagBuilder(Tag.Identified<Block> identified) {
+	public Tag.Builder getTagBuilder(TagKey<Block> identified) {
 		return super.getTagBuilder(identified);
 	}
 
